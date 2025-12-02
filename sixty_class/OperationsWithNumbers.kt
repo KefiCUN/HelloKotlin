@@ -79,13 +79,20 @@ fun main(args: Array<String>) {
     print(helloStr);
     var selectedOperationInput = readLine()?.toIntOrNull() ?: 1;
     var selectedOperation:UByte = if (selectedOperationInput in 0..255) selectedOperationInput.toUByte() else 1u;
-
+    var frag:Boolean = false;
     //работает пока пользователь не введет число больше 4
     while(selectedOperation in 1u..4u){
 
+        if(frag){
+            print("Выберите операцию: ");
+            selectedOperationInput = readLine()?.toIntOrNull() ?: 1;
+            selectedOperation = if (selectedOperationInput in 0..255) selectedOperationInput.toUByte() else 1u;
+            print(selectedOperation)
+        } else{
+            frag = true;
+        }
         // выполнение действий по коду операции
         when (selectedOperation){
-        
             // вычисление сложного процента
             1.toUByte() -> {
                 requestDataUser();
@@ -93,6 +100,7 @@ fun main(args: Array<String>) {
                 compoundInterest = principal * (1 + rate / annualAccruals.toFloat()).pow(annualAccruals.toInt() * periodsCount.toInt());
                 // форматируем отчет по вычислениям
                 result = " Сложный процент равен: $compoundInterest";
+                println(result);
             };
             
             // Расчет платежа по кредиту
@@ -101,6 +109,7 @@ fun main(args: Array<String>) {
                 //ежемесячный платеж по кредиту вычисляется по формуле PMT = P × (r×(1+r)^n) / ((1+r)^n - 1)
                 loanPayment =  principal * (1 + rate / annualAccruals.toFloat()).pow(annualAccruals.toInt() * periodsCount.toInt());
                 result = "Ежемесячный платеж по кредиту будет равен: $loanPayment";
+                println(result);
             };
 
             //Конвертация валюты
@@ -132,9 +141,10 @@ Dollar, Ruble, Euro. """);
 Коммиссия $commission
 Итого у вас выйдет $finalSum
                 """;
+                println(result);
                 
             };
         }
     }
-    println(result);
+    
 }
