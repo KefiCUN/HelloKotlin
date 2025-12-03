@@ -59,6 +59,7 @@ fun main(args: Array<String>) {
     println("=== АВТОМАТИЗАЦИЯ ===");
     while(sensorFlag){
         
+        var command:String =((readLine()?:" ").toString());
         when (timeOfDay) {
             "утро" -> {
                 println("Утренний режим активирован:");
@@ -87,7 +88,8 @@ fun main(args: Array<String>) {
             };
             else -> println("Не опознаное время");
         };
-        
+
+        if(command == "Выход") sensorFlag = false;
 
     }
    
