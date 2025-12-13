@@ -91,37 +91,37 @@ fun main(args: Array<String>) {
         command = (readLine()?:"0").toInt();
         when (command){
             1 -> {
-                arrResults =  filterNumbers(arrNumbs, {x:Int -> x%2 == 0} );
+                arrResults =  filterNumbers(arrNumbs){x:Int -> x%2 == 0};
                 print("[");
                 for (i in arrResults) print("" + i + if(!(i == arrResults[arrResults.lastIndex])) "," else "");
                 print("]");
             };
             2 -> {
-                arrResults =  filterNumbers(arrNumbs, {x:Int -> x%2 != 0} );
+                arrResults =  filterNumbers(arrNumbs){x:Int -> x%2 != 0};
                 print("[");
                 for (i in arrResults) print("" + i + if(!(i == arrResults[arrResults.lastIndex])) "," else "");
                 print("]");
             };
             3 -> {
-                arrResults =  filterNumbers(arrNumbs, {x:Int -> x>10} );
+                arrResults =  filterNumbers(arrNumbs){x:Int -> x>10};
                 print("[");
                 for (i in arrResults) print("" + i + if(!(i == arrResults[arrResults.lastIndex])) "," else "");
                 print("]");
             };
             4 -> {
-                arrResults =  transformNumbers(arrNumbs, {x:Int -> x*x});
+                arrResults =  transformNumbers(arrNumbs){x:Int -> x*x};
                 print("[");
                 for (i in arrResults) print("" + i + if(!(i == arrResults[arrResults.lastIndex])) "," else "");
                 print("]");
             };
             5 -> {
-                arrResults =  transformNumbers(arrNumbs, {x:Int -> x*2});
+                arrResults =  transformNumbers(arrNumbs){x:Int -> x*2};
                 print("[");
                 for (i in arrResults) print("" + i + if(!(i == arrResults[arrResults.lastIndex])) "," else "");
                 print("]");
             };
             6 -> {
-                var arrResults =  transformNumbers(arrNumbs, { x: Int -> "Число: $x" });
+                var arrResults =  transformNumbers(arrNumbs){ x: Int -> "Число: $x" };
                 print("[");
                 for (i in arrResults) print("" + i + if(!(i == arrResults[arrResults.lastIndex])) "," else "");
                 print("]");
