@@ -23,11 +23,11 @@
 // Стало: Создавать библиотеку сразу с книгами или пустую.
 
 // Задачи для Library:
-// Первичный конструктор с параметром: начальный список книг
 
-// Вторичный конструктор без параметров (пустая библиотека)
+class Book ( val title:String, val author: String, var year:Int) {
+ 
 
-// Блок init для вывода сообщения при создании библиотеки
+    var isBorrowed:Boolean = false;
 
     constructor( title:String, author:String): this(title, author,2025)
 
