@@ -1,0 +1,6 @@
+
+
+interface MusicPlayer {
+    
+    fun playMusic()
+}

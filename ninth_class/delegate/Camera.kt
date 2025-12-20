@@ -1,0 +1,6 @@
+
+
+interface Camera {
+
+    fun takePhoto()
+}
