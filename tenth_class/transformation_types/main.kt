@@ -1,17 +1,15 @@
 
-open class Person(open var name: String) {}
+open class Person(open var name: String) 
 
 class Employee(
     override var name: String,
     var company: String?
-): Person(name) {}
+): Person(name) 
 
 fun Person.checkEmployment() {
-    if(this is Employee) {
-        if(this.company == null) println("${this.name} doesn't have company")
-        else println("${this.name} ${this.company}")
-    } else{
-        println("${this.name} doesn't work")
+    when(this){
+        is Employee -> println("${this.name} ${this.company ?: "doesn't have company"}")
+        else -> println("${this.name} doesn't work")
     }
 }
 
